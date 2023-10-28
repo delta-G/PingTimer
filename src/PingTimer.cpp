@@ -20,6 +20,20 @@ PingTimer  --  uses Timer1 Input Capture to read a HC-SR04
 
 #include "PingTimer.h"
 
+
+// Echo pin on ICP1 -- PB0 on 328P  (UNO pin 8)
+                    //-- PD6 on 1284P  (pin 14)
+#if defined (__AVR_ATmega1284__) || defined (__AVR_ATmega1284P__)
+#define ECHO_PIN_MASK (1 << 6)
+#define ECHO_PIN_PORT PIND
+#elif defined (__AVR_ATmega328__) || defined (__AVR_ATmega328P__)
+#define ECHO_PIN_MASK (1 << 0)
+#define ECHO_PIN_PORT PINB
+#else
+#error ERROR: This library only supports a very limited list of processors 
+#endif
+
+
 PingTimer ping;
 
 
@@ -31,12 +45,13 @@ PingTimer::PingTimer(){
 
 void PingTimer::begin() {
 	initTimer();
-	// ATMEGA328P
-//	pinMode(8, INPUT);
-//	pinMode(9, OUTPUT);
-	// ATMEGA1284P
+#if defined (__AVR_ATmega1284__) || defined (__AVR_ATmega1284P__)
 	pinMode(14, INPUT);
 	pinMode(13, OUTPUT);
+#elif defined (__AVR_ATmega328__) || defined (__AVR_ATmega328P__)
+	pinMode(8, INPUT);
+	pinMode(9, OUTPUT);
+#endif	
 }
 
 

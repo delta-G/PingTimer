@@ -23,15 +23,7 @@ PingTimer  --  uses Timer1 Input Capture to read a HC-SR04
 
 #include "Arduino.h"
 
-// Ping pin on OC1A -- PB1 on 328P.  (UNO pin 9)
-                    //-- PD5 on 1284P  (pin 13)
-#define PING_PIN_MASK (1 << 5)
-#define PING_PIN_PORT PORTD
 
-// Echo pin on ICP1 -- PB0 on 328P  (UNO pin 8)
-                    //-- PD6 on 1284P  (pin 14)
-#define ECHO_PIN_MASK (1 << 6)
-#define ECHO_PIN_PORT PIND
 
 class PingTimer {
 private:

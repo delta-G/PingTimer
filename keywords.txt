@@ -1,0 +1,19 @@
+# Syntax Coloring Map For PingTimer Library
+
+# Datatypes (KEYWORD1)
+PingTimer    KEYWORD1
+
+# Methods and Functions (KEYWORD2)
+begin KEYWORD2
+sendPing KEYWORD2
+echoHandler KEYWORD2
+overflowHandler KEYWORD2
+hasNewData KEYWORD2
+hasOverflowed KEYWORD2
+getTimerVal KEYWORD2
+getDistanceMM KEYWORD2
+
+# Instances (KEYWORD2)
+ping KEYWORD2
+
+# Constants (LITERAL1)
